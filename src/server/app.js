@@ -6,19 +6,19 @@ app.set('view engine', 'ejs');
 app.listen(3000);
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {page: 'Home'});
 })
 
 app.get('/cart', (req, res) =>{
-    res.render('cart');
+    res.render('cart', {page: 'Cart'});
 })
 
 app.get('/login', (req, res) =>{
-    res.render('login');
+    res.render('login', {page: 'Login'});
 })
 
 app.get('/register', (req, res) =>{
-    res.render('register');
+    res.render('register', {page: 'Register'});
 })
 
 
