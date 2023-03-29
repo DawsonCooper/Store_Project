@@ -3,7 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const dbAccess = 'mongodb+srv://DawsonCooper:Allsnap36@store.fczgzcd.mongodb.net/Store?retryWrites=true&w=majority'
 const Item = require('./models/Items');
-const User = require('./models/Users');
+
+const authController = require('./controllers/authController')
 
 mongoose.connect(dbAccess, { useNewUrlParser:true, useUnifiedTopology:true })
     .then((result) => {
@@ -63,13 +64,7 @@ app.post('/login-form', (req, res) =>{
     const data = req.body;
 
 })
-app.post('/create-user', (req, res) =>{
-    const data = req.body;
-    const user = new User(data);
-    user.save()
-        .then(result => res.redirect('/'))
-        .catch((err) => res.send(err));
-})
+app.post('/create-user', authController.createUser)
 
 
 app.use((req, res) => {
