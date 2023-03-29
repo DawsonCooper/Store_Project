@@ -6,7 +6,25 @@
 
         <%- include('./partials/navbar.ejs') %>
             <h2>This is my <%= page %> page</h2>
+            <div class="items">
+                <% if (error){ %>
+                    <p>Something went wrong :p</p>
+                    <%} else { items.forEach(item=> {
+                        %>
+                        <div class="item" id="<%= item._id %>">
+                            <h2>
+                                <%= item.name %>
+                            </h2>
+                            <h5>
+                                <%= item.price %>
+                            </h5>
+                            <p>
+                                <%= item.description %>
+                            </p>
+                        </div>
+                        <%})}%>
 
+            </div>
 
 
 

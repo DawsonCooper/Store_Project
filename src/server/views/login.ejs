@@ -7,8 +7,13 @@
         <%- include('./partials/navbar.ejs') %>
             <div>
                 <h2>Login</h2>
-                <form>
-
+                <form action="/login-form" method="post">
+                    <input type="text" class="form-control username" placeholder="Username" aria-label="Username"
+                        required name="username" />
+                    <input type="password" class="form-control password" placeholder="Password" aria-label="Password"
+                        required name="password" />
+                    <input type="'submit" class="form-control btn btn-primary" value="Submit"
+                        aria-label="Submit form" />
                 </form>
             </div>
 
