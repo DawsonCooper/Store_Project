@@ -1,0 +1,20 @@
+:root{
+    --auth-display: flex; 
+    --auth-f-direction: column; 
+    --auth-f-gap: 1rem; 
+}
+.auth-wrapper{
+    width: 20vw;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 60%;
+    display: var(--auth-display);
+    flex-direction: var(--auth-f-direction);
+    gap: var(--auth-f-gap);
+}
+.auth-form{
+    display: var(--auth-display);
+    flex-direction: var(--auth-f-direction);
+    gap: var(--auth-f-gap);
+}

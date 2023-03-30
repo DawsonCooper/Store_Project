@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const dbAccess = 'mongodb+srv://DawsonCooper:Allsnap36@store.fczgzcd.mongodb.net/Store?retryWrites=true&w=majority'
-const Item = require('./models/Items');
+
 
 const authController = require('./controllers/authController')
 
@@ -18,21 +18,9 @@ mongoose.connect(dbAccess, { useNewUrlParser:true, useUnifiedTopology:true })
 app.set('view engine', 'ejs');
 app.use(express.static('static'))
 app.use(express.urlencoded({ extended: true }))
-app.use((req, res, next) => {
-    console.log('-----------------------------     New Request     -----------------------------------'); 
-    console.log(req.method);
-    console.log(req.path);
-    next();
-})
 
-
-
-app.get('/', (req, res) => {
-    
-    Item.find()
-        .then((result) => {console.log(result)
-                            res.render('index', {items: result, page: 'Home', error: false})})
-        .catch((err) => {res.render('index', {error: true, page: 'Home'})});
+app.get('/', (req, res) => {    
+    res.render('index', {page: 'Home'})
 })
 /*
 app.get('/new-item', (req, res) => {
@@ -48,8 +36,8 @@ app.get('/new-item', (req, res) => {
         .catch((err) => res.send(err));
 })
 */
-app.get('/cart', (req, res) =>{
-    res.render('cart', {page: 'Cart'});
+app.get('/search', (req, res) =>{
+    res.render('search', {page: 'Search'});
 })
 
 app.get('/login', (req, res) =>{
