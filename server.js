@@ -1,18 +1,44 @@
 const express = require('express');
+const { MongoClient } = require('mongodb');
+const dbAccess = 'mongodb+srv://DawsonCooper:Allsnap36@store.fczgzcd.mongodb.net/Store?retryWrites=true&w=majority';
+
+
 const app = express();
-const mongoose = require('mongoose');
-const dbAccess = 'mongodb+srv://DawsonCooper:Allsnap36@store.fczgzcd.mongodb.net/Store?retryWrites=true&w=majority'
+  
+let connection
+let database
+// this function will return our connection object
+const getConnection = () => connection;
 
-
-const authController = require('./src/server/controllers/authController')
-
-mongoose.connect(dbAccess, { useNewUrlParser:true, useUnifiedTopology:true })
-    .then((result) => {
+//This is our callback that will handle errors
+const connectionCallback = (msg) => {
+    if (!msg){
+        // handle error
         
+    }else{
+        //handle success
         app.listen(5000);
+        database = getConnection
+    }
+}
+const dbConnect = (cb) => {
+    MongoClient.connect(dbAccess)
+    .then((client) => {
+        connection = client.db()
+        cb(true);
     })
-    .catch((err) =>{console.log({err})});
+    .catch((error) => {
+        console.error(error)
+        cb(false)
+    });
+}
+// connect to the MongoDB db and pass in our callback that will handle errors
+dbConnect(connectionCallback)
 
+
+
+
+const authController = require('./server/controllers/authController')
 
 
 app.set('view engine', 'ejs');
@@ -53,6 +79,13 @@ app.post('/login-form', (req, res) =>{
 
 })
 */
+
+app.get('/get-listings', (req, res) =>{
+    // Get sample airbnb data from mongo db and send some paginated result to the client
+
+    console.log('Get request for listings received from client');
+    res.jsonp({msg: 'Sent a get request to express for listings.'});
+});
 
 app.post('/testcase', (req, res) =>{
     console.log('TestCase')
