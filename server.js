@@ -21,6 +21,8 @@ const connectionCallback = (msg) => {
         database = getConnection
     }
 }
+
+// this function will connect to the database when requested and run our callback to handle that response 
 const dbConnect = (cb) => {
     MongoClient.connect(dbAccess)
     .then((client) => {
