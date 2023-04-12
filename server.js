@@ -1,6 +1,6 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
-const dbAccess = 'mongodb+srv://DawsonCooper:Allsnap36@store.fczgzcd.mongodb.net/Store?retryWrites=true&w=majority';
+const dbAccess = 'mongodb://localhost:27017/sample_airbnb';
 
 
 const app = express();
@@ -8,17 +8,21 @@ const app = express();
 let connection
 let database
 // this function will return our connection object
-const getConnection = () => connection;
+const getConnection = () => {
+    console.log({connection})
+    console.log({database})
+    return connection
+};
 
 //This is our callback that will handle errors
-const connectionCallback = (msg) => {
-    if (!msg){
+const connectionCallback = (test) => {
+    if (!test){
         // handle error
-        
+        console.log('Broken connection')
     }else{
         //handle success
         app.listen(5000);
-        database = getConnection
+        database = getConnection()
     }
 }
 
@@ -36,6 +40,7 @@ const dbConnect = (cb) => {
 }
 // connect to the MongoDB db and pass in our callback that will handle errors
 dbConnect(connectionCallback)
+
 
 
 
@@ -84,18 +89,25 @@ app.post('/login-form', (req, res) =>{
 
 app.get('/get-listings', (req, res) =>{
     // Get sample airbnb data from mongo db and send some paginated result to the client
-
+    
     console.log('Get request for listings received from client');
     res.jsonp({msg: 'Sent a get request to express for listings.'});
 });
 
 app.post('/testcase', (req, res) =>{
     console.log('TestCase')
+    let listings = [];
+    database.collection('listingsAndReviews')
+    .find()
+    .limit(10)
+    .forEach(listing => {
+        listings.push(listing);
+    }).then(result =>{
+        console.log(listings)
+        res.status(200).json({lisings: listings})
+    }).catch(err => {
+        res.status(500).json({msg: 'Cannot find listings'});
+    })
+    
 });
 app.post('/create-user', authController.createUser)
-
-
-app.use((req, res) => {
-
-    res.status(404).render('404');
-})
