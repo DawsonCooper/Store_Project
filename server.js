@@ -1,5 +1,5 @@
 const express = require('express');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const dbAccess = 'mongodb://localhost:27017/sample_airbnb';
 
 
@@ -34,7 +34,7 @@ const dbConnect = (cb) => {
         cb(true);
     })
     .catch((error) => {
-        console.error(error)
+        console.error({error})
         cb(false)
     });
 }
@@ -87,11 +87,18 @@ app.post('/login-form', (req, res) =>{
 })
 */
 
-app.get('/get-listings', (req, res) =>{
+app.get('/', (req, res) =>{
     // Get sample airbnb data from mongo db and send some paginated result to the client
-    
+    let listingsArray = [10];
+    database.collection('listingsAndReviews').find().limit(10).forEach(listing => {
+        listingsArray.push(listing);
+    }).then(result => {
+        res.status(200).json({ listingsArray })
+    }).catch(err => {
+        res.status(500).json({error: 'We are having trouble getting your listings'})
+    })
     console.log('Get request for listings received from client');
-    res.jsonp({msg: 'Sent a get request to express for listings.'});
+    res.json({msg: 'Sent a get request to express for listings.'});
 });
 
 app.post('/testcase', (req, res) =>{
@@ -104,7 +111,7 @@ app.post('/testcase', (req, res) =>{
         listings.push(listing);
     }).then(result =>{
         console.log(listings)
-        res.status(200).json({lisings: listings})
+        res.status(200).json({ listings })
     }).catch(err => {
         res.status(500).json({msg: 'Cannot find listings'});
     })
