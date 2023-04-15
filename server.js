@@ -40,14 +40,6 @@ const dbConnect = (cb) => {
 }
 // connect to the MongoDB db and pass in our callback that will handle errors
 dbConnect(connectionCallback)
-
-
-
-
-
-const authController = require('./server/controllers/authController')
-
-
 app.set('view engine', 'ejs');
 app.use(express.static('static'))
 app.use(express.urlencoded({ extended: true }))
@@ -87,34 +79,17 @@ app.post('/login-form', (req, res) =>{
 })
 */
 
-app.get('/', (req, res) =>{
+app.get('/listings', (req, res) =>{
     // Get sample airbnb data from mongo db and send some paginated result to the client
-    let listingsArray = [10];
-    database.collection('listingsAndReviews').find().limit(10).forEach(listing => {
+    let listingsArray = [];
+    database.collection('listingsAndReviews').find().limit(12).forEach(listing => {
         listingsArray.push(listing);
-    }).then(result => {
-        res.status(200).json({ listingsArray })
+    }).then(() => {
+        console.log(listingsArray);
+        return res.status(200).json(listingsArray);
     }).catch(err => {
-        res.status(500).json({error: 'We are having trouble getting your listings'})
+        res.status(500).json({error: 'We are having trouble getting your listings'});
     })
     console.log('Get request for listings received from client');
-    res.json({msg: 'Sent a get request to express for listings.'});
-});
 
-app.post('/testcase', (req, res) =>{
-    console.log('TestCase')
-    let listings = [];
-    database.collection('listingsAndReviews')
-    .find()
-    .limit(10)
-    .forEach(listing => {
-        listings.push(listing);
-    }).then(result =>{
-        console.log(listings)
-        res.status(200).json({ listings })
-    }).catch(err => {
-        res.status(500).json({msg: 'Cannot find listings'});
-    })
-    
 });
-app.post('/create-user', authController.createUser)
