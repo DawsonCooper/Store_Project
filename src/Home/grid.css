@@ -1,0 +1,49 @@
+.listingGrid{
+    margin: 5rem;
+    margin-top: 7.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1vh 1vw;
+}
+.listingGridItem{
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.infoListItem{
+    margin: .25rem;
+}
+.gridImage{
+    height: 60%;
+    width: 90%;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+.gridImage:hover{
+    opacity: .75;
+}
+
+
+
+
+
+
+.skeletonGrid{
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 349px;
+}
+.skeletonGridItem{
+    margin: .25rem;
+    background: linear-gradient(0.25turn, rgb(211, 210, 210), rgb(230, 229, 229));
+    height:5%;
+    width: 90%;
+}
+.skeletonGridImage{
+    margin: .25rem;
+    height: 60%;
+    width: 90%;
+    background: linear-gradient(0.25turn, rgb(204, 204, 204), rgb(230, 229, 229));
+    
+}

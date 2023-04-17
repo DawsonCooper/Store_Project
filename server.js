@@ -43,41 +43,6 @@ dbConnect(connectionCallback)
 app.set('view engine', 'ejs');
 app.use(express.static('static'))
 app.use(express.urlencoded({ extended: true }))
-/*
-app.get('/', (req, res) => {    
-    res.render('index', {page: 'Home'})
-})
-
-app.get('/new-item', (req, res) => {
-    const item = new Item({
-        name: 'Golf Club',
-        price: 99,
-        tags: ['Golf', 'Outdoors', 'Sports', 'Golf Club'],
-        description: 'Driving Iron Golf Club (2)'
-
-    })
-    item.save()
-        .then(result => res.send(result))
-        .catch((err) => res.send(err));
-})
-
-app.get('/search', (req, res) =>{
-    res.render('search', {page: 'Search'});
-})
-
-app.get('/login', (req, res) =>{
-    res.render('login', {page: 'Login'});
-})
-
-app.get('/register', (req, res) =>{
-    res.render('register', {page: 'Register'});
-})
-
-app.post('/login-form', (req, res) =>{
-    const data = req.body;
-
-})
-*/
 
 app.get('/listings', (req, res) =>{
     // Get sample airbnb data from mongo db and send some paginated result to the client
