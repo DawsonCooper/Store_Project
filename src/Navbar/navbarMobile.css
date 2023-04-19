@@ -1,0 +1,19 @@
+@media (max-width: 800px) {
+    .navbar-brand h4{
+        display: none;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .navbar-brand {
+        display: none;
+    }
+    .navbar-profile{
+        display: none;
+    }
+    .navbar{
+        display: flex;
+        justify-content: center;
+    }
+}
