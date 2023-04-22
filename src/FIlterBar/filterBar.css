@@ -1,0 +1,27 @@
+.filterBar{
+    display: flex;
+    gap: 2rem;
+    position: absolute;
+    left: 50px;
+    right: 50px;
+    font-size: 12px;
+    margin-top: .5rem;
+    overflow-x: auto;
+}
+.filterImage{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+    opacity: .5;
+    padding: .5rem;
+    cursor: pointer;
+}
+.filterImage img{
+    height: 26px;
+    width: 26px;
+}
+.filterImage:hover{
+    opacity: 1;
+    border-bottom: 2px solid rgba(172, 171, 171, 0.75);
+}

@@ -1,6 +1,7 @@
 import './grid.css';
 import {useEffect, useState} from 'react';
 import 'bootstrap'
+import './gridMobile.css';
 export default function HomeGrid() {
   const skeletonList = [1,2,3,4,5,6,7,8,9,10];
   const [listingArray, setListingArray] = useState([])
@@ -18,10 +19,13 @@ export default function HomeGrid() {
     }).catch(err => console.log('Failed to get data from server'));
       console.log('--------------------------------')
     }, [])
+    
+    // We need to check if the last rendered listing is visible if so we should fetch the next group of listings
+    // We will want to keep track of how many groups we have grabbed so we can skip x amount (no repeat listings)
 
   return (
     <div className='listingGrid'>
-      {listingArray.length > 1 ?
+      {listingArray.length > 15 ?
         listingArray.map(item => {
         // jsx that uses properties from item to display listing information
         return(

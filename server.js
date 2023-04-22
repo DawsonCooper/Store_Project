@@ -47,7 +47,7 @@ app.use(express.urlencoded({ extended: true }))
 app.get('/listings', (req, res) =>{
     // Get sample airbnb data from mongo db and send some paginated result to the client
     let listingsArray = [];
-    database.collection('listingsAndReviews').find().limit(12).forEach(listing => {
+    database.collection('listingsAndReviews').find().limit(20).forEach(listing => {
         listingsArray.push(listing);
     }).then(() => {
         console.log(listingsArray);

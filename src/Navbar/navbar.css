@@ -21,6 +21,7 @@
 }
 .navbar-brand h4{
     margin: 0;
+    margin-left: 10px;
     font-size: 1.5em;
     color: #ff385c;
 }
@@ -39,10 +40,18 @@
     align-items: center;
     padding: .50rem;
 }
+.navbar-search:hover{
+    box-shadow: rgba(0, 0, 0, 0.44) 0px 3px 8px;
+}
 .search-icon{
-    height: 95%;
-    cursor: pointer;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid transparent;
+    border-radius: 50%;
+    background-color: #ff385c;
+    height: 32px;
+    width: 32px;
 }
 .search-button{
     display: flex;
@@ -66,7 +75,9 @@
     align-items: center;
     justify-content: space-evenly;
 }
-
+.navbar-profile:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
 .profile-menu{
     height: 55%;
