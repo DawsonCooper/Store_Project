@@ -14,10 +14,8 @@ export default function HomeGrid() {
     }).then(response => {
         return response.json()
     }).then(result => {
-        console.log({result})
         setListingArray(result)
     }).catch(err => console.log('Failed to get data from server'));
-      console.log('--------------------------------')
     }, [])
     
     // We need to check if the last rendered listing is visible if so we should fetch the next group of listings

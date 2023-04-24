@@ -6,7 +6,58 @@ export default function Navbar() {
   const searchIconStyles = {
     display: 'block', fill: 'none', height: '12px', width: '12px', stroke: 'white', strokeWidth: '5.33333px', overflow: 'visible'
   }
+
+  const [whereModal, setWhereModal] = useState(false);
+  const [qualityModal, setQualityModal] = useState(false);
+  const [whoModal, setWhoModal] = useState(false);
+  const setWhereModalFunc= () => {
+    setQualityModal(false);
+    setWhoModal(false);
+    setWhereModal(!whereModal);
+  }
+  const setQualityModalFunc= () => {
+    setQualityModal(!qualityModal);
+    setWhoModal(false);
+    setWhereModal(false);
+  }
+  const setWhoModalFunc= () => {
+    setQualityModal(false);
+    setWhoModal(!whoModal);
+    setWhereModal(false);
+  }
+  useEffect(() => {
+    if(whereModal){
+        console.log("where")
+        // here we will want to 
+    }else if(qualityModal){
+        console.log("quality")
+    }else if(whoModal){
+        console.log("who")
+    }else{
+        console.log("None")
+    }
+    },[whereModal, qualityModal, whoModal])
+    
+    const renderModal = () =>{
+        if(whereModal){
+            // render whereModal
+            return (
+                <div>Where Modal</div>
+            )
+        }else if(qualityModal){
+            return (
+                <div>Quality Modal</div>
+            )
+        }else if(whoModal){
+            return (
+                <div>Who Modal</div>
+            )
+        }else{
+            return null;
+        }
+    }
   return (
+    <div className='navAndModalWrapper'>
     <div className='navbar'>
         <div className='navbar-brand'>
             <svg width="30" height="32">
@@ -15,9 +66,9 @@ export default function Navbar() {
             <h4>airbnb</h4>
         </div>
         <div className='navbar-search'>
-            <div className='search-rooms search-button btn'>Where</div>
-            <div className='search-country search-button btn'>Quality</div>
-            <div className='search-rating search-button btn'>Who?</div>
+            <div className='search-rooms search-button btn' onClick={setWhereModalFunc}>Where</div>
+            <div className='search-country search-button btn' onClick={setQualityModalFunc}>Quality</div>
+            <div className='search-rating search-button btn' onClick={setWhoModalFunc}>Who?</div>
             <div className='search-icon'>
                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style={searchIconStyles} aria-hidden="true" role="presentation" focusable="false">
                     <g fill="none">
@@ -28,13 +79,15 @@ export default function Navbar() {
         </div>
         <div className='navbar-profile'>
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-list profile-menu" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
         </svg>
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-person-circle profile-icon" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
         </svg>
         </div>
+    </div>
+    {renderModal()}
     </div>
   );
 }
