@@ -2,6 +2,9 @@ import './navbar.css';
 import './navbarMobile.css';
 import {useEffect, useState} from 'react';
 import 'bootstrap'
+import WhereModal from './modals/whereModal';
+import QualityModal from './modals/qualityModal';
+import WhoModal from './modals/whoModal';
 export default function Navbar() {
   const searchIconStyles = {
     display: 'block', fill: 'none', height: '12px', width: '12px', stroke: 'white', strokeWidth: '5.33333px', overflow: 'visible'
@@ -42,15 +45,15 @@ export default function Navbar() {
         if(whereModal){
             // render whereModal
             return (
-                <div>Where Modal</div>
+                <WhereModal />
             )
         }else if(qualityModal){
             return (
-                <div>Quality Modal</div>
+                <QualityModal />
             )
         }else if(whoModal){
             return (
-                <div>Who Modal</div>
+                <WhoModal />
             )
         }else{
             return null;
