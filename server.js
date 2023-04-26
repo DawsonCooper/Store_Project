@@ -58,3 +58,18 @@ app.get('/listings', (req, res) =>{
     console.log('Get request for listings received from client');
 
 });
+
+app.get('/pagination', (req, res) =>{
+    let listingsArray = [];
+    console.log(req.query.page)
+    const skipAmount = req.query.page * 20;
+    database.collection('listingsAndReviews').find().skip(skipAmount).limit(20).forEach(listing => {
+        listingsArray.push(listing);
+    }).then(() => {
+        //console.log(listingsArray);
+        return res.status(200).json(listingsArray);
+    }).catch(err => {
+        res.status(500).json({error: 'We are having trouble getting your listings'});
+    })
+    console.log('Get request for a new set of listings received from client');
+});

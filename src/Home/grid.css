@@ -12,7 +12,8 @@
     margin-top: 7.5rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1vh 1vw;
+    grid-template-rows: repeat(auto-fit, auto);
+    gap: 5vh .75vw;
 }
 .listingGridItem{
     border: 1px solid transparent;
@@ -23,8 +24,8 @@
     margin: .25rem;
 }
 .gridImage{
-    height: 75%;
-    width: 90%;
+    height: 75% !important;
+    width: 90% !important;  
     border: 1px solid transparent;
     border-radius: 10px;
 }
@@ -59,3 +60,10 @@
 }
 
 
+.buttonWrap{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
+}
