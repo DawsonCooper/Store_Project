@@ -1,0 +1,26 @@
+@media (min-width: 1950px) {
+    .listingGrid{
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+}
+@media (max-width: 750px){
+    .listingGridItem{
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .listingGridItem h4{
+        width: 75%;
+        text-align: left;
+    }
+    .listingGridItem p{
+        width: 75%;
+        text-align: left;
+    }
+    .listingGridItem img{
+        width: 75%;
+        height: 80%;
+    }
+    
+}
