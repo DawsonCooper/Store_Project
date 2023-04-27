@@ -18,7 +18,7 @@
     border: 1px solid transparent;
     border-radius: 10px;
     height: 309px;
-    
+    position: relative;
 }
 .infoListItem{
     margin: .25rem;
@@ -26,8 +26,13 @@
 .gridImage{
     height: 75%;
     width: 90%;  
+    
+}
+.gridImage img{
     border: 1px solid transparent;
     border-radius: 10px;
+    height: 100%;
+    width: 100%;
 }
 .gridImage:hover{
     opacity: .75;
