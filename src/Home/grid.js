@@ -1,8 +1,11 @@
 import './grid.css';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import 'bootstrap'
 import './gridResponsive.css';
+import { FilterContext } from '../FilterContext';
+
 export default function HomeGrid() {
+  const {filter} = useContext(FilterContext)
   const initPage = 2;
   const skeletonList = [1,2,3,4,5,6,7,8,9,10];
   const [listingArray, setListingArray] = useState([])
@@ -15,13 +18,8 @@ export default function HomeGrid() {
     if (updateArea <= .5){
       loadMore()
     }
-
-    console.log({location});
-    console.log({bottomY});
-    console.log({updateArea});
-    console.log('---------------')
   }
-
+  
   useEffect(() => {
     console.log('mount')
     // Fetch the api for our first list of postings
