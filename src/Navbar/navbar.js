@@ -37,7 +37,7 @@ export default function Navbar() {
     }else if(whoModal){
         console.log("who")
     }else{
-        console.log("None")
+        console.log("No modal")
     }
     },[whereModal, qualityModal, whoModal])
     

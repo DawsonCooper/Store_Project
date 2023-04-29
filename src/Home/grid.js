@@ -10,19 +10,35 @@ export default function HomeGrid() {
   const skeletonList = [1,2,3,4,5,6,7,8,9,10];
   const [listingArray, setListingArray] = useState([])
   const [page, setPage] = useState(initPage);
-  // This useEffect will run onMount and will update the listing state using a fetch req to our server once reveived skeleton list should be replaced
-  const onScroll = () => {
-    const location = window.scrollY;
-    const bottomY = window.scrollMaxY || document.body.offsetHeight - window.innerHeight;
-    const updateArea = bottomY - location;
-    if (updateArea <= .5){
-      loadMore()
+
+  // -----------------------------  FILTER FUNCTIONS  ----------------------------------- //
+  useEffect(() => {
+    console.log({filter})
+    if(filter === ''){
+      console.log('No filter')
+    }else{
+      setListingArray([])
+      fetch(`/filtered?filter=${filter}`, {
+        method: 'GET',
+      }).then(response => {
+          return response.json()
+      }).then(result => {
+          setListingArray(result)
+      }).catch(err => console.log('Failed to get data from server'));
     }
-  }
+
+  }, [filter])
   
+  
+  const filterMore = () => {
+    return null
+  }
+
+
+  // Fetch the api for our first list of postings
   useEffect(() => {
     console.log('mount')
-    // Fetch the api for our first list of postings
+    
       fetch('/listings', {
         method: 'GET',
       }).then(response => {
@@ -33,22 +49,38 @@ export default function HomeGrid() {
     // Add a listener that will check scroll location to detect when to call load more function
       
     }, [])
-    useEffect(() => {
-      window.addEventListener('scroll', onScroll, { passive: true });
-      return () => {window.removeEventListener('scroll', onScroll)}
-    }) 
-    const loadMore = () => {
-      setPage(page + 1);
-      console.log(page)
-      fetch(`/pagination?page=${page}`, {
-          method: 'GET',
-        }).then(response => {
-            return response.json()
-        }).then(result => {
-            setListingArray(listingArray.concat(result))
-        }).catch(err => console.log('Failed to get data from server'));
-        console.log({listingArray})
+
+
+  // --------------------------- PAGINATION FUNCTIONS --------------------------------
+  const onScroll = () => {
+    const location = window.scrollY;
+    const bottomY = window.scrollMaxY || document.body.offsetHeight - window.innerHeight;
+    const updateArea = bottomY - location;
+    if (updateArea <= .5){
+      if(filter !== ''){
+        filterMore()
+      }else{
+        loadMore()
+      }
+      
     }
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {window.removeEventListener('scroll', onScroll)}
+  }) 
+  const loadMore = () => {
+    setPage(page + 1);
+    console.log(page)
+    fetch(`/pagination?page=${page}`, {
+        method: 'GET',
+      }).then(response => {
+          return response.json()
+      }).then(result => {
+          setListingArray(listingArray.concat(result))
+      }).catch(err => console.log('Failed to get data from server'));
+      console.log({listingArray})
+  }
   return (
     <div>
       <div className='listingGrid'>

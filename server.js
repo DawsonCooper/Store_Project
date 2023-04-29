@@ -60,6 +60,7 @@ app.get('/listings', (req, res) =>{
 });
 
 app.get('/pagination', (req, res) =>{
+
     let listingsArray = [];
     console.log(req.query.page)
     const skipAmount = req.query.page * 20;
@@ -75,16 +76,58 @@ app.get('/pagination', (req, res) =>{
 });
 
 app.get('/filtered', (req, res) =>{
+    const filter = req.query.filter;
     let listingsArray = [];
-    console.log(req.query.filter)
-    const skipAmount = req.query.page * 20;
-    database.collection('listingsAndReviews').find({property_type: req.query.filter}).skip(skipAmount).limit(20).forEach(listing => {
-        listingsArray.push(listing);
-    }).then(() => {
-        //console.log(listingsArray);
-        return res.status(200).json(listingsArray);
-    }).catch(err => {
-        res.status(500).json({error: 'We are having trouble getting your listings'});
-    })
-    console.log('Get request for a new set of listings received from client');
+    console.log(filter)
+    switch (filter) {
+        case '6':
+            console.log('in mansion case')
+            database.collection('listingsAndReviews').find({bedrooms: {$gt: 6}}).limit(20).forEach(listing => {
+                listingsArray.push(listing);
+            }).then(() => {
+                return res.status(200).json(listingsArray);
+            }).catch(err => {
+                res.status(500).json({error: 'We are having trouble getting your listings'});
+            })
+            break;
+        case '200':
+            console.log('in trending case')
+            database.collection('listingsAndReviews').find({number_of_reviews: {$gt: 200}}).limit(20).sort({number_of_reviews: -1}).forEach(listing => {
+                listingsArray.push(listing);
+            }).then(() => {
+                return res.status(200).json(listingsArray);
+            }).catch(err => {
+                res.status(500).json({error: 'We are having trouble getting your listings'});
+            })
+            break;
+        case 'Wheelchair':
+        case 'Kitchen':
+        case 'Waterfront':
+        case 'pool':
+            console.log('In property types cases')
+            const amenitiesRegex = new RegExp(filter)
+            console.log({amenitiesRegex})
+            database.collection('listingsAndReviews').find({amenities: amenitiesRegex}).limit(20).forEach(listing => {
+                listingsArray.push(listing);
+            }).then(() => {
+                return res.status(200).json(listingsArray);
+            }).catch(err => {
+                res.status(500).json({error: 'We are having trouble getting your listings'});
+            })
+
+            break;
+        default: 
+            console.log('In property types cases')
+            const propertyRegex = new RegExp(filter)
+            console.log({propertyRegex})
+            database.collection('listingsAndReviews').find({property_type: propertyRegex}).limit(20).forEach(listing => {
+                listingsArray.push(listing);
+            }).then(() => {
+                return res.status(200).json(listingsArray);
+            }).catch(err => {
+                res.status(500).json({error: 'We are having trouble getting your listings'});
+            })
+            break;
+    }
+    console.log('Get request for a filtered set of listings received from client');
 });
