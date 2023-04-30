@@ -114,8 +114,12 @@ app.get('/filtered', (req, res) =>{
             }).catch(err => {
                 res.status(500).json({error: 'We are having trouble getting your listings'});
             })
-
             break;
+        case 'park':
+        case 'view':
+            // TODO: View should be available through name property or summary, and park should also be available through the same property
+            break;
+        // TODO: We will need another case to handle house boats and possibly others for now i will just stretch the svgs to the end of the page
         default: 
             console.log('In property types cases')
             const propertyRegex = new RegExp(filter)

@@ -1,9 +1,17 @@
-@media (max-width: 800px) {
+@media (max-width: 1160px) {
     .navbar-brand h4{
         display: none;
     }
 }
+@media (max-width: 942px) {
+    .navbar-brand {
+        margin-left: 1vw;
+    }
+    .navbar-search{
+        
+    }
 
+}
 
 @media (max-width: 500px) {
     .navbar-brand {
@@ -15,5 +23,9 @@
     .navbar{
         display: flex;
         justify-content: center;
+    }
+    .navbar-search{
+        position: static;
+        
     }
 }

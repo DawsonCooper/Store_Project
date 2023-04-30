@@ -1,10 +1,12 @@
 .filterBar{
     display: flex;
-    gap: 2rem;
     position: absolute;
-    left: 50px;
-    right: 50px;
-    font-size: 12px;
+    justify-content: space-between;
+    gap: minmax(2rem, auto);
+    width: 95vw;
+    left: 2.5vw;
+    right: 2.5vw;
+    font-size: 12px; 
     margin-top: .5rem;
     overflow-x: auto;
 }
@@ -13,6 +15,7 @@
     flex-direction: column;
     gap: .5rem;
     align-items: center;
+    text-align: center;
     opacity: .5;
     padding: .5rem;
     cursor: pointer;

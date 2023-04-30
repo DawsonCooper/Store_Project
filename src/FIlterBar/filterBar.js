@@ -21,10 +21,6 @@ export default function FilterBar(props){
                 <img alt='Bed & Breakfast' src='https://a0.muscache.com/pictures/5ed8f7c7-2e1f-43a8-9a39-4edfc81a3325.jpg' className='poolImg bedAndBreakfast' />
                 Bed & Breakfast
             </span>
-            <span className='filterImage ' onClick={() => {changeFilter('Tree')}}>
-                <img alt='Tree House' src='https://a0.muscache.com/pictures/4d4a4eba-c7e4-43eb-9ce2-95e1d200d10e.jpg' className='poolImg treeHouse' />
-                Treehouse
-            </span>
             <span className='filterImage ' onClick={() => {changeFilter('Cabin')}}>
                 <img alt='Cabins' src='https://a0.muscache.com/pictures/732edad8-3ae0-49a8-a451-29a8010dcc0c.jpg' className='poolImg cabins' />
                 Cabins
@@ -60,10 +56,6 @@ export default function FilterBar(props){
             <span className='filterImage ' onClick={() => {changeFilter('park')}}>
                 <img alt='Park' src='https://a0.muscache.com/pictures/c0a24c04-ce1f-490c-833f-987613930eca.jpg' className='poolImg park' />
                 Parks
-            </span>
-            <span className='filterImage '>
-                <img alt='Mansions' src='https://a0.muscache.com/pictures/78ba8486-6ba6-4a43-a56d-f556189193da.jpg' className='poolImg mansions' />
-                Mansions
             </span>
         </div>
     )

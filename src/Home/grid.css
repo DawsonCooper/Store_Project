@@ -7,7 +7,7 @@
     z-index: 1;
     cursor: pointer;
 }
-.listingGrid{
+.listingGrid{ 
     margin: 5rem;
     margin-top: 7.5rem;
     display: grid;
@@ -52,13 +52,14 @@
     height: 349px;
 }
 .skeletonGridItem{
-    margin: .25rem;
+    margin: 5%;
     background: linear-gradient(0.25turn, rgb(211, 210, 210), rgb(230, 229, 229));
-    height:5%;
+    height: 5%;
     width: 90%;
+    
 }
 .skeletonGridImage{
-    margin: .25rem;
+    margin: 5%;
     height: 60%;
     width: 90%;
     background: linear-gradient(0.25turn, rgb(204, 204, 204), rgb(230, 229, 229));
@@ -72,3 +73,7 @@
     align-items: center;
     margin-bottom: 5vh;
 }
+
+
+
+
