@@ -50,7 +50,6 @@ app.get('/listings', (req, res) =>{
     database.collection('listingsAndReviews').find().limit(20).forEach(listing => {
         listingsArray.push(listing);
     }).then(() => {
-        console.log(listingsArray);
         return res.status(200).json(listingsArray);
     }).catch(err => {
         res.status(500).json({error: 'We are having trouble getting your listings'});
@@ -62,7 +61,6 @@ app.get('/listings', (req, res) =>{
 app.get('/pagination', (req, res) =>{
 
     let listingsArray = [];
-    console.log(req.query.page)
     const skipAmount = req.query.page * 20;
     database.collection('listingsAndReviews').find().skip(skipAmount).limit(20).forEach(listing => {
         listingsArray.push(listing);
@@ -106,7 +104,6 @@ app.get('/filtered', (req, res) =>{
         case 'pool':
             console.log('In property types cases')
             const amenitiesRegex = new RegExp(filter)
-            console.log({amenitiesRegex})
             database.collection('listingsAndReviews').find({amenities: amenitiesRegex}).limit(20).forEach(listing => {
                 listingsArray.push(listing);
             }).then(() => {
@@ -123,7 +120,6 @@ app.get('/filtered', (req, res) =>{
         default: 
             console.log('In property types cases')
             const propertyRegex = new RegExp(filter)
-            console.log({propertyRegex})
             database.collection('listingsAndReviews').find({property_type: propertyRegex}).limit(20).forEach(listing => {
                 listingsArray.push(listing);
             }).then(() => {
@@ -134,4 +130,15 @@ app.get('/filtered', (req, res) =>{
             break;
     }
     console.log('Get request for a filtered set of listings received from client');
+});
+
+app.get('/singleListing', (req, res) => {
+    const id = parseInt(req.query.id);
+    console.log(typeof(id));
+
+    database.collection('listingsAndReviews').findOne({_id: id}, function(err, result){
+        console.log({result});
+        console.log({err})
+        err ? res.status(500).json({error: 'Listing not found'}) : res.status(200).json({listing: result})
+    })
 });

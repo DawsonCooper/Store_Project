@@ -1,0 +1,8 @@
+.listing-search{
+    justify-content: space-between !important;
+    
+}
+.listing-search * {
+    margin-left: .25rem;
+    margin-right: .25rem;
+}
