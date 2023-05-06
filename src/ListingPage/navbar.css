@@ -1,3 +1,9 @@
+.listing-navbar{
+    width: 75%;
+    gap: 2rem;
+    margin: 0;
+}
+
 .listing-search{
     justify-content: space-between !important;
     

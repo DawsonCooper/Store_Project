@@ -1,0 +1,44 @@
+.listing-header{
+    margin: 1rem;
+    margin-left: calc(12.5% + 1vw);
+    margin-right: calc(12.5% + 1vw);
+}
+.name-wrapper{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.listing-name{
+    margin: 0;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 30px
+}
+
+.translate-svg{
+    display: block;
+    height: 24px;
+    width: 24px;
+}
+
+.extra-content-row{
+    display: flex;
+    justify-content: space-between;
+
+}
+.extra-content-section-0{
+    
+}
+.extra-content-section-0 *{
+    margin-top: .5rem;
+}
+.review-count{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.review-count:hover{
+    text-decoration: none;
+}
+.extra-content-section-1{
+
+}

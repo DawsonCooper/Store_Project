@@ -24,10 +24,7 @@ export default function Listing(props){
         .catch(err => console.log(err))
         
     },[id]);
-    useEffect(()=>{ 
-        console.log({...listing})
-        listing ? console.log(`name: ${listing.name}`) : console.log('Broken')
-    },[listing])
+
     
     
     return (
@@ -36,7 +33,7 @@ export default function Listing(props){
                 <>
                     <div className='listing-navbar-wrapper'><Navbar /></div>
                     <div className='listing-wrapper'>
-                        <div className='listing-header-wrapper'><Header name={listing.name}/></div>
+                        <div className='listing-header-wrapper'><Header listing={listing}/></div>
                         <div className='listing-image-grid-wrapper'><ImageGrid /></div>
                         <div className='listing-info-wrapper'><Info /></div>
                     </div>
