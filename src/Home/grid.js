@@ -89,7 +89,7 @@ export default function HomeGrid() {
 
   // ---------------------------  COMPONENT   --------------------------- //
   return (
-    <div>
+    <div className='listing-grid-wrapper'>
       <div className='listingGrid'>
         {listingArray.length >= 1 ?
           listingArray.map(item => {

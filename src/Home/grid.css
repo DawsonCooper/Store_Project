@@ -12,12 +12,13 @@
     margin-top: 7.5rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 5vh .75vw;
+    grid-auto-rows: (minmax(309px, auto));
+    gap: 5vh 3vw;
 }
 .listingGridItem{
+    aspect-ratio: 1/1;
     border: 1px solid transparent;
     border-radius: 10px;
-    height: 309px;
     position: relative;
     cursor: pointer;
 }
@@ -26,7 +27,7 @@
 }
 .gridImage{
     height: 75%;
-    width: 90%;  
+    width: 100%;  
     
 }
 .gridImage img{

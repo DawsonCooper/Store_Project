@@ -4,7 +4,7 @@ export default function Listing(props){
     const item = props.item
     const image = require('./logo.png')
     const [ogImage, setOgImage] = useState(item.images.picture_url)
-    const [altImage, setAltImage] = useState('Listing Image not loaded')
+    const [altImage, setAltImage] = useState('Loading image please wait...')
     
     const imageError = () => {
         setOgImage(image)
