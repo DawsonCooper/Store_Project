@@ -58,6 +58,7 @@
     background-color: #ff385c;
     height: 32px;
     width: 32px;
+    cursor: pointer;
 }
 .search-button{
     display: flex;
@@ -68,6 +69,8 @@
     border-right: 1px solid rgba(225,225,225, .75);
 }
 
+
+
 .navbar-profile{
     width: 65px;
     height: 40px;
@@ -75,14 +78,23 @@
     border-radius: 25px;
     padding: 5px;
     margin: 1%; 
-    margin-right: 5%;
+    margin-right: 2%;
     justify-self: end;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    position: absolute;
+    right: 0;
+    transition: all 50ms ease-in-out;
 }
 .navbar-profile:hover{
+    width: 68px;
+    height: 43px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.navbar-profile:active{
+    width: 63px;
+    height: 37px;
 }
 
 .profile-menu{
