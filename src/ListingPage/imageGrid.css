@@ -1,0 +1,39 @@
+.image-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    height: 50vh;
+    width: clamp( 300px, 1150px , 75%);
+}
+.image-grid-item{
+    height: 100%;
+    width: 100%;
+}
+.gi-1{
+    border: 0px solid transparent;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.gi-2{
+    
+}
+.gi-3{
+    border: 0px solid transparent;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.gi-4{
+    
+}
+.gi-5{
+    border: 0px solid transparent;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

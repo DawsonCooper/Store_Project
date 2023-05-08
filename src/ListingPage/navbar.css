@@ -1,9 +1,15 @@
 .listing-navbar{
-    width: 75%;
+    width: clamp( 300px, 1150px , 75%);
     gap: 2rem;
     margin: 0;
+    
 }
-
+.listing-brand{
+    margin-left: 0;
+}
+.listing-profile{
+    margin-right: 0;
+}
 .listing-search{
     justify-content: space-between !important;
     
@@ -11,7 +17,4 @@
 .listing-search * {
     margin-left: .25rem;
     margin-right: .25rem;
-}
-.listing-profile{
-    right: 12.5%;
 }

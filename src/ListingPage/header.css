@@ -1,7 +1,6 @@
+
 .listing-header{
-    margin: 1rem;
-    margin-left: calc(12.5% + 1vw);
-    margin-right: calc(12.5% + 1vw);
+    width: clamp( 300px, 1150px , 75%);
 }
 .name-wrapper{
     display: flex;

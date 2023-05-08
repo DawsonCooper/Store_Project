@@ -1,0 +1,8 @@
+.listing-header-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.listing-image-grid-wrapper{
+    display: flex;
+    justify-content: center;
+}
