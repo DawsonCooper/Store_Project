@@ -36,7 +36,7 @@ export default function Listing(props){
                     <div className='listing-wrapper'>
                         <div className='listing-header-wrapper'><Header listing={listing}/></div>
                         <div className='listing-image-grid-wrapper'><ImageGrid img={listing.images.picture_url} /></div>
-                        <div className='listing-info-wrapper'><Info /></div>
+                        <div className='listing-info-wrapper'><Info listing={listing} /></div>
                     </div>
                 </>
             ) : (<>Loading</>)}

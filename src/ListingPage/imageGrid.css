@@ -5,8 +5,9 @@
     gap: 10px;
     border: 1px solid transparent;
     border-radius: 100px;
-    height: 50vh;
+    height: 55vh;
     width: clamp( 300px, 1150px , 75%);
+    margin-bottom: 20px;
 }
 .image-grid-item{
     height: 100%;

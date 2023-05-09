@@ -134,11 +134,13 @@ app.get('/filtered', (req, res) =>{
 
 app.get('/singleListing', (req, res) => {
     const id = parseInt(req.query.id);
-    console.log(typeof(id));
+    
 
     database.collection('listingsAndReviews').findOne({_id: id}, function(err, result){
-        console.log({result});
-        console.log({err})
-        err ? res.status(500).json({error: 'Listing not found'}) : res.status(200).json({listing: result})
+        result.amenities = JSON.parse(result.amenities.replace(/'/g, '"'));
+        console.log(result['amenities']);
+        console.log(typeof(result['amenities']));
+        console.log({err});
+        err ? res.status(500).json({error: 'Listing not found'}) : res.status(200).json({listing: result});
     })
 });

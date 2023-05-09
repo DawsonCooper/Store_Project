@@ -12,7 +12,7 @@
 }
 .listing-search{
     justify-content: space-between !important;
-    
+    width: 300px;
 }
 .listing-search * {
     margin-left: .25rem;

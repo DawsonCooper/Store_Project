@@ -1,6 +1,8 @@
 
 .listing-header{
     width: clamp( 300px, 1150px , 75%);
+    margin-top:10px;
+    margin-bottom: 10px;
 }
 .name-wrapper{
     display: flex;
