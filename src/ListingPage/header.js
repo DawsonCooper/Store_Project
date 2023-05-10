@@ -17,11 +17,15 @@ export default function Header(props){
             <div className='extra-content-row'>
                 <div className='extra-content-section-0'>
                     <span className='review-count'>{listing.number_of_reviews} reviews</span>
-                    {listing.host.host_is_superhost ? <span>Superhost</span> : null}
+                    {listing.host.host_is_superhost ? (
+                    <>
+                        <span className='bullet' /> 
+                        <span>Superhost</span> 
+                    </>): null}
                     <span className='bullet' />
                     <a href={listing.host.host_url} target='_blank' rel="noreferrer" className='host-name'>{listing.host.host_name}</a>
                     <span className='bullet' />
-                    <span className='location'>{listing.address.market}, {listing.address.country}</span>
+                    <span className='location'>{listing.address.street}</span>
                 </div>
                 <div className='extra-content-section-1'>
                     <div className='favorite-wrapper'> 

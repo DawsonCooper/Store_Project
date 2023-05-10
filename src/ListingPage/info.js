@@ -9,6 +9,12 @@ export default function Info(props){
         setHostPhoto(profilePic)
         setDefaultHostPhoto(null)
     }
+    const aircoverModal = () => {
+        console.log('modal open')
+        return(
+            null
+        )
+    }
     return(
         <div className='info'>
             <div className='host-info'>
@@ -29,6 +35,11 @@ export default function Info(props){
                 <div className='unit-amenities'></div>
                 <div className='unit-amenities'></div>
                 <div className='unit-amenities'></div>
+            </div>
+            <div className='air-cover-wrapper'>
+                <img className='aircover-title' src='https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg' alt='aircover' />
+                <p className='aircover-info'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
+                <span onClick={aircoverModal} className='aircover-link'>Learn more</span>
             </div>
         </div>
     )

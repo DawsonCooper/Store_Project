@@ -1,9 +1,16 @@
+:root{
+    --info-left-width: 60%;
+    --divider-bottom-padding: 30px;
+    --divider-border-bottom: 1px solid rgba(206, 206, 206, 0.7);
+}
+
 .info{
     width: clamp( 300px, 1150px , 75%);
     display: flex;
+    flex-direction: column;
 }
 .host-info{
-    width: 60%;
+    width: var(--info-left-width);
 }
 .host-info-header{
     font-weight: 600;
@@ -23,8 +30,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    border-bottom: 1px solid rgba(206, 206, 206, 0.7);
-    padding-bottom: 30px;
+    border-bottom: var(--divider-border-bottom);
+    padding-bottom: var(--divider-bottom-padding);
 }
 
 .host-info-row2-content{
@@ -40,4 +47,31 @@
 .row2-para{
     height: auto;
     margin: 0;
+}
+.air-cover-wrapper{
+    width: var(--info-left-width);
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: var(--divider-border-bottom);
+    padding-bottom: var(--divider-bottom-padding);
+}
+.aircover-title{
+    height: 2rem;
+    width: 9rem;
+    
+}
+.aircover-info{
+    font-size: 18px;
+}
+.aircover-link{
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+}
+.aircover-link:hover{
+    text-decoration: none;
 }
