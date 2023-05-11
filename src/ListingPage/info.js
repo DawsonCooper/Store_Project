@@ -1,19 +1,19 @@
-import './info.css'
-import { useState } from 'react'
+import './info.css';
+import { useState } from 'react';
+import AircoverModal from './aircoverModal'
 export default function Info(props){
     const listing = props.listing;
     const profilePic = require('./images/profile.jpg')
     const [hostPhoto, setHostPhoto] = useState(listing.host.host_picture_url)
     const [defaultHostPhoto, setDefaultHostPhoto] = useState(null)
+    const [mountModal, setMountModal] = useState(false);
     const handleError = () => {
         setHostPhoto(profilePic)
         setDefaultHostPhoto(null)
     }
     const aircoverModal = () => {
         console.log('modal open')
-        return(
-            null
-        )
+        setMountModal(!mountModal)
     }
     return(
         <div className='info'>
@@ -41,6 +41,7 @@ export default function Info(props){
                 <p className='aircover-info'>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
                 <span onClick={aircoverModal} className='aircover-link'>Learn more</span>
             </div>
+            <AircoverModal mountState={mountModal} setMountState={setMountModal} />
         </div>
     )
 }

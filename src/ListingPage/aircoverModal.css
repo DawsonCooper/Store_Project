@@ -1,0 +1,27 @@
+.aircover-modal-wrapper{
+    height: 50vh;
+    width: 99vw;
+    
+}
+.backdrop {
+    opacity: 50%;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: hidden !important;
+    z-index: 1;
+}
+
+.aircover-modal{
+    position: absolute;
+    height: 75%;
+    width: 90%;
+    top: 75%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    background-color: white;
+}
