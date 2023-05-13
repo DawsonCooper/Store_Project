@@ -1,0 +1,20 @@
+.rent-info-wrapper{
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+}
+.price-amount{
+    font-weight: 400;
+    font-size: 24px
+}
+.price-stay{
+    font-size: 17px;
+}
+.price{
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+}
+.price *{
+    margin: 0;
+}

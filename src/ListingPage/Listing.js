@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
-import Navbar from './navbar';
-import ImageGrid from './imageGrid';
-import Info from './info';
-import Header from './header';
+import Navbar from './navbar/navbar';
+import ImageGrid from './grid/imageGrid';
+import Info from './info/info';
+import Header from './header/header';
 import './listing.css'
 import { useEffect, useState } from 'react';
 

@@ -1,10 +1,10 @@
 import './imageGrid.css'
 
 export default function ImageGrid(props){
-    const img1 = require('./images/stock0.jpg');
-    const img2 = require('./images/stock1.jpg');
-    const img3 = require('./images/stock2.jpg');
-    const img4 = require('./images/stock3.jpg');
+    const img1 = require('../images/stock0.jpg');
+    const img2 = require('../images/stock1.jpg');
+    const img3 = require('../images/stock2.jpg');
+    const img4 = require('../images/stock3.jpg');
     return(
         <div className='image-grid'>
             <img className='image-grid-item gi-1' src={props.img} alt='Listing unit'></img>

@@ -1,9 +1,10 @@
 import './info.css';
 import { useState } from 'react';
-import AircoverModal from './aircoverModal'
+import AircoverModal from '../aircover/aircoverModal'
+import RentInfo from '../rentingInfo/rentingInfo.js'
 export default function Info(props){
     const listing = props.listing;
-    const profilePic = require('./images/profile.jpg')
+    const profilePic = require('../images/profile.jpg')
     const [hostPhoto, setHostPhoto] = useState(listing.host.host_picture_url)
     const [defaultHostPhoto, setDefaultHostPhoto] = useState(null)
     const [mountModal, setMountModal] = useState(false);
@@ -29,8 +30,10 @@ export default function Info(props){
                 </div>
             </div>
             <div className='renting-info'>
-
+                <RentInfo listing={listing} />
             </div>
+            <div className='under-grid'>
+            
             <div className='unit-info'>
                 <div className='unit-amenities'></div>
                 <div className='unit-amenities'></div>
@@ -42,6 +45,7 @@ export default function Info(props){
                 <span onClick={aircoverModal} className='aircover-link'>Learn more</span>
             </div>
             <AircoverModal mountState={mountModal} setMountState={setMountModal} />
+            </div>
         </div>
     )
 }
