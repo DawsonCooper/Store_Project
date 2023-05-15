@@ -5,7 +5,7 @@
 }
 
 .info{
-    width: clamp( 300px, 1150px , 75%);
+    width: clamp( 300px, 1150px , 75vw);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -24,6 +24,7 @@
 .host-info-row1 img{
     height: 50px;
     width: 50px;
+    border-radius: 50px;
 }
 
 .host-info-row2{

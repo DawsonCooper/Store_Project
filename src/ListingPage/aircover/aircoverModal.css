@@ -4,7 +4,7 @@
     
 }
 .backdrop {
-    opacity: 50%;
+    opacity: 0%;
     bottom: 0;
     left: 0;
     background-color: black;
@@ -13,15 +13,85 @@
     position: fixed;
     overflow: hidden !important;
     z-index: 1;
+    transition: all 200ms linear;
 }
 
 .aircover-modal{
     position: absolute;
-    height: 75%;
-    width: 90%;
-    top: 75%;
+    height: 57.7%;
+    width: clamp(900px,80%,90%);
+    top: 0;
     left: 50%; 
     transform: translate(-50%, -50%);
     z-index: 2;
     background-color: white;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 20px;
+    opacity: 0%;
+    transition: all 200ms linear;
+}
+.close-svg-wrapper{
+    border: 1px solid transparent;
+    border-radius: 50px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.close-svg-wrapper:hover{
+    background-color: rgba(148, 148, 148, 0.1);
+}
+.close-svg{
+    display: block;
+    fill: none;
+    height: 16px; 
+    width: 16px; 
+    stroke: currentcolor; 
+    stroke-width: 3px; 
+    overflow: visible;
+}
+.aircover-modal-header{
+    padding-bottom: .5rem;
+    border-bottom: 1px solid rgba(148, 148, 148, 0.4);
+}
+.aircover-modal-title{
+    height: 2rem;
+    width: 9rem;
+}
+
+.aircover-modal-header, .aircover-modal-content{
+    margin-left: 2%;
+}
+.aircover-modal-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.aircover-modal-content-headers{
+    margin: .1rem;
+    margin-left: 0;
+    
+    font-size: 1em;
+}
+.aircover-modal-content-para{
+    margin-left: 0;
+    color: #6f6f6f;
+    font-size: 1.1em;
+}
+
+
+
+@media(max-width: 1126px){
+    .aircover-modal{
+        height: auto;
+        width: 90vw;
+    }
+    .aircover-modal-content{
+        display: flex;
+        flex-direction: column;
+    }
 }

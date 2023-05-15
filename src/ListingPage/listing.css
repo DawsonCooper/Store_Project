@@ -10,3 +10,6 @@
     display: flex;
     justify-content: center;
 }
+.listing-page-wrapper{
+    width: calc(100vw - 17px);
+}
