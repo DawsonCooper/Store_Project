@@ -1,7 +1,12 @@
 .rent-info-wrapper{
     height: 100%;
-    width: 100%;
+    
     padding: 20px;
+}
+.pricing-rating{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 .price-amount{
     font-weight: 400;
@@ -17,4 +22,27 @@
 }
 .price *{
     margin: 0;
+}
+
+.star-svg{
+    display: block; 
+    height: 12px; 
+    width: 12px; 
+    fill: currentcolor;
+}
+.rating{
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    font-size: .84em;
+    
+}
+.rating *{
+    margin: 0;
+}
+
+.num-of-reviews{
+    color: rgba(107, 107, 107, 0.9);
+    text-decoration: underline;
+    cursor: pointer;
 }
