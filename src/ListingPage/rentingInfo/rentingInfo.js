@@ -30,6 +30,7 @@ export default function RentInfo(props){
             </div>
             <div className='reserve'>
                 {/*Button that has a linear gradient horizontal however it tracks the mouse and changes the gradient depending on the mouse location*/}
+                <span className='reserve-button'>Reserve</span>
             </div>
             <div className='default-stay-info'>
 

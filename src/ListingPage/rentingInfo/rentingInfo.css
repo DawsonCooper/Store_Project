@@ -46,3 +46,20 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+
+.reserve-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    height: 50px;
+    width: 100%;
+    border: 0px solid transparent;
+    border-radius: 10px;
+    background-color: red;
+    background-image: radial-gradient(circle at center, #ff385c 0%, #e61e4d 22.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+    background-position: ;
+}
