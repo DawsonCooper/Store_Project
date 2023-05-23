@@ -47,7 +47,29 @@
     cursor: pointer;
 }
 
+.stay-info{
+    border: 1px solid rgba(71, 71, 71, 0.5);
+    border-radius: 10px;
+    height: 100px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
 
+}
+.top-row{
+    display: flex;
+    height: 50%;
+    border-bottom: 1px solid rgba(71, 71, 71, 0.5);
+}
+.check-in{
+    width: 50%;
+    border-right: 1px solid rgba(71, 71, 71, 0.5);
+    cursor: pointer;
+}
+.check-out{
+    cursor: pointer;
+    width: 50%;
+}
 .reserve-button{
     display: flex;
     align-items: center;
@@ -61,5 +83,5 @@
     border-radius: 10px;
     background-color: red;
     background-image: radial-gradient(circle at center, #ff385c 0%, #e61e4d 22.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
-    background-position: ;
+    cursor: pointer;
 }

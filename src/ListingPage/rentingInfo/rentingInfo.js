@@ -26,6 +26,10 @@ export default function RentInfo(props){
                     User can also click on the calendar once one day is clicked thats marked as the check in second click is marked as checkout
                     Close button will save those days to state and clear resets the modal completely
                 */}
+                <div className='top-row'>
+                    <div className='check-in'></div>
+                    <div className='check-out'></div>
+                </div>
 
             </div>
             <div className='reserve'>
