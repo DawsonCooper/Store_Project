@@ -11,9 +11,9 @@
     margin: 5rem;
     margin-top: 7.5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(6, 16%);    
     grid-auto-rows: (minmax(309px, auto));
-    gap: 5vh 3vw;
+    gap: 3vh 1vw;
 }
 .listingGridItem{
     aspect-ratio: 1/1;
@@ -81,5 +81,7 @@ a{
     text-decoration: none !important;
 }
 
-
-
+.singleListingGridItem{
+    height: 313px;
+    width: 309px;
+}

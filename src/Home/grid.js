@@ -3,7 +3,7 @@ import {useEffect, useState, useContext} from 'react';
 import 'bootstrap'
 import './gridResponsive.css';
 import { FilterContext } from '../FilterContext';
-
+import SingleFilterListing from './singleFilter';
 import Listing from './listing'
 import Skeleton from './skeleton'
 
@@ -89,15 +89,22 @@ export default function HomeGrid() {
 
   // ---------------------------  COMPONENT   --------------------------- //
   return (
-    <div className='listing-grid-wrapper'>
+    <div className='listing-grid-wrapper' >
       <div className='listingGrid'>
-        {listingArray.length >= 1 ?
+        {listingArray.length >= 2 ?
           listingArray.map(item => {
           // Load listing componens when our listing array items are available
           return(
             <Listing item={item} />
           ) 
-        }): skeletonList.map((item, index) => {
+        })
+        :listingArray.length === 1 ? 
+          listingArray.map(item => {
+            return(
+              <SingleFilterListing item={item} />
+            )
+          })
+        : skeletonList.map((item, index) => {
           // Skeleton Load when items aren't available
           return (
               <Skeleton index={index} />
