@@ -1,10 +1,5 @@
-@media (min-width: 1950px) {
-    .listingGrid{
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        margin: 0 !important;
-    }
-} 
-@media (max-width: 1910px){
+ 
+@media (max-width: 1880px){
     .listingGrid{ 
         grid-template-columns: repeat(5, 19%);    
         grid-auto-rows: (minmax(309px, auto));

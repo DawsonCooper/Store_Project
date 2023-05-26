@@ -1,3 +1,4 @@
+
 .heart{
     position: absolute;
     top: 5%;
@@ -11,7 +12,8 @@
     margin: 5rem;
     margin-top: 7.5rem;
     display: grid;
-    grid-template-columns: repeat(6, 16%);    
+    grid-template-columns: repeat(6, 15%);  
+    justify-content: space-between;
     grid-auto-rows: (minmax(309px, auto));
     gap: 3vh 1vw;
 }
